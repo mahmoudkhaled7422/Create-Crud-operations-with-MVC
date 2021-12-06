@@ -1,0 +1,29 @@
+﻿@model List<WithLoginAuth.Models.Course>
+@{
+    ViewBag.Title = "RemoveCourse";
+}
+
+<h2>Remove Course From @ViewBag.std.Name </h2>
+@using (@Html.BeginForm())
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Course Name</th>
+                <th>Operation</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.CourseName</td>
+                    <td>@Html.CheckBox("crs." + item.courseId.ToString())</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <input type="submit" class="btn btn-danger" value="Remove" />
+    @Html.ActionLink("Back to List", "Index", "Studnet", new { @class = "btn btn-primary" })
+
+}

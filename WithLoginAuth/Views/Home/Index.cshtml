@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class=" container text-center" )>
+    <img src="~/images/1.jpg" width="80%" />
+    <br />
+    @Html.ActionLink("Students", "index", "Student", null, new { @class = "btn btn-info", style = "margin-right:10px;" })
+    @if (User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Departments", "index", "Department", null, new { @class = "btn btn-info", style = "margin-right:10px;" })
+        @Html.ActionLink("Courses", "index", "Course", null, new { @class = "btn btn-info" })
+    }
+</div>
+

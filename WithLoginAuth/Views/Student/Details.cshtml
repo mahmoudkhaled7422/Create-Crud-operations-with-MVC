@@ -1,0 +1,59 @@
+﻿@model WithLoginAuth.Models.Student
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Age)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Department.DepName)
+                </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.Img)
+                    </th>*@
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Department.DepName)
+                </td>
+                @*<td>
+                        <img src="~/images/@Model.Img" style="width:100px; height:100px; border-radius:50%;" />
+                    </td>*@
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>
+    @if (User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-warning" }) 
+    }
+    @Html.ActionLink("Back to List", "Index", "Student", new { @class = "btn btn-primary" })
+
+</p>

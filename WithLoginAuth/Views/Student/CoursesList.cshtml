@@ -1,0 +1,30 @@
+﻿@model List<WithLoginAuth.Models.StudentCourse>
+@{
+    ViewBag.Title = "CoursesList";
+}
+
+<h2>
+    Courses List For @ViewBag.std.Name
+</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Course</th>
+            <th>Degree</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Course.CourseName
+                </td>
+                <td>
+                    @item.Degree
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.ActionLink("Back to List", "Index", "Student", new { @class = "btn btn-primary" })

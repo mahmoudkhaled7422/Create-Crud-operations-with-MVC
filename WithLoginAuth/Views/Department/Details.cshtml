@@ -1,0 +1,29 @@
+﻿@model WithLoginAuth.Models.Department
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Department</h4>
+    <hr />
+    <dl class="">
+        <dt>
+            @Html.DisplayNameFor(model => model.DepName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DepName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DepId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DepId)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DepId }, new { @class = "btn btn-warning" }) |
+    @Html.ActionLink("Back to List", "Index", "Department", new { @class = "btn btn-primary" })
+</p>

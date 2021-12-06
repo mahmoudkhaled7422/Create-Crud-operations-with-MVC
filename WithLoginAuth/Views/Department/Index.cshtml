@@ -1,0 +1,44 @@
+﻿@model IEnumerable<WithLoginAuth.Models.Department>
+@{
+    ViewBag.Title = "Index";
+}
+<p>
+    @Html.ActionLink("Create New", "Create", "Department", new { @class = "btn btn-success" })
+</p>
+<table class="table table-bordered table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DepName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepId)
+        </th>
+        <th>
+            Operations
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.DepId }, new { @class = "btn btn-warning" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.DepId }, new { @class = "btn btn-info" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.DepId }, new { @class = "btn btn-danger" }) |
+                @Html.ActionLink("Add Course", "AddCourse", "Department", new { id = item.DepId }, new { @class = "btn btn-primary" }) |
+                @Html.ActionLink("Remove Course", "RemoveCourse", "Department", new { id = item.DepId }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+<div>
+    @Html.ActionLink("Students", "Index", "Student",null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Courses", "Index", "Course", null,new { @class = "btn btn-primary" })
+</div>
